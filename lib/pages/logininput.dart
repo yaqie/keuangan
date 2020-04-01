@@ -90,11 +90,11 @@ class _LoginInputState extends State<LoginInput> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF010F3F),
-      // backgroundColor: Color(0xFF1F3379),
+      // backgroundColor: Color(0xFF010F3F),
+      backgroundColor: Color(0xFF1F3379),
       appBar: AppBar(
-        // backgroundColor: Color(0xFF1F3379),
-        backgroundColor: Color(0xFF010F3F),
+        backgroundColor: Color(0xFF1F3379),
+        // backgroundColor: Color(0xFF010F3F),
         elevation: 0,
         centerTitle: false,
         iconTheme: IconThemeData(
@@ -102,10 +102,6 @@ class _LoginInputState extends State<LoginInput> with SingleTickerProviderStateM
         )
       ),
       body: 
-        _isLoading ? 
-        Center(
-          child: Image.asset('images/loading2.gif'),
-        ) : 
         ListView(
         children: <Widget>[
           Padding(
@@ -202,6 +198,26 @@ class _LoginInputState extends State<LoginInput> with SingleTickerProviderStateM
                                   },
                                 ),
                               ),
+                              _isLoading ?
+                              Expanded(
+                                flex: 1,
+                                child: RawMaterialButton(
+                                  elevation: 2.0,
+                                  shape: CircleBorder(),
+                                  fillColor: Color(0xFFAAAAAA),
+                                  onPressed: (){},
+                                  child: 
+                                  
+                                  CircularProgressIndicator(
+                                    backgroundColor: Colors.white,
+                                    valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                                  ),
+                                  constraints: BoxConstraints.tightFor(
+                                    width: 50.0,
+                                    height: 50.0,
+                                  ),
+                                )
+                              ) :
                               Expanded(
                                 flex: 1,
                                 child: RawMaterialButton(
@@ -210,11 +226,13 @@ class _LoginInputState extends State<LoginInput> with SingleTickerProviderStateM
                                   fillColor: Color(0xFF34B2FF),
                                   onPressed: (){
                                     setState(() {
+                                      FocusScope.of(context).requestFocus(new FocusNode());
                                       _isLoading = true;
                                       signIn(emailController.text,passwordController.text);
                                     });
                                   },
-                                  child: Icon(
+                                  child: 
+                                  Icon(
                                     Icons.chevron_right,
                                     color: Color(0xFFFFFFFF),
                                     size: 25.0,

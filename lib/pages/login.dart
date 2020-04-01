@@ -46,8 +46,8 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Color(0xFF1F3379),
-      backgroundColor: Color(0xFF010F3F),
+      // backgroundColor: Color(0xFF010F3F),
+      backgroundColor: Color(0xFF1F3379),
       body: ListView(
         children: <Widget>[
           Padding(

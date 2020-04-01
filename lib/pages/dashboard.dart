@@ -103,8 +103,8 @@ class _DashboardState extends State<Dashboard>{
             },
           ),
         ],
-        // backgroundColor: Color(0xFF1F3379),
-        backgroundColor: Color(0xFF010F3F),
+        backgroundColor: Color(0xFF1F3379),
+        // backgroundColor: Color(0xFF010F3F),
         elevation: 0,
         centerTitle: false,
       ),
@@ -120,8 +120,8 @@ class _DashboardState extends State<Dashboard>{
                 Container(
                   transform: Matrix4.translationValues(0.0, -75.0, 0.0),
                   decoration: BoxDecoration(
-                    color: Color(0xFF010F3F),
-                    // color: Color(0xFF1F3379),
+                    // color: Color(0xFF010F3F),
+                    color: Color(0xFF1F3379),
                   ),
                   child: Container(
                     child: Column(
@@ -190,13 +190,13 @@ class _DashboardState extends State<Dashboard>{
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.only(bottom:5.0),
-                          // child: Text('Kamu belum punya catatan apapun',style: TextStyle(color: Color(0xFF1F3379),fontSize: 20),),
-                          child: Text('Kamu belum punya catatan apapun',style: TextStyle(color: Color(0xFF010F3F),fontSize: 20),),
+                          child: Text('Kamu belum punya catatan apapun',style: TextStyle(color: Color(0xFF1F3379),fontSize: 20),),
+                          // child: Text('Kamu belum punya catatan apapun',style: TextStyle(color: Color(0xFF010F3F),fontSize: 20),),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(bottom:20.0),
-                          // child: Text('Kuy catat keuanganmu sekarang!',style: TextStyle(color: Color(0xFF1F3379)),),
-                          child: Text('Kuy catat keuanganmu sekarang!',style: TextStyle(color: Color(0xFF010F3F)),),
+                          child: Text('Kuy catat keuanganmu sekarang!',style: TextStyle(color: Color(0xFF1F3379)),),
+                          // child: Text('Kuy catat keuanganmu sekarang!',style: TextStyle(color: Color(0xFF010F3F)),),
                         ),
                         Image.asset('images/empty.png'),
                       ],
@@ -263,8 +263,8 @@ class _DashboardState extends State<Dashboard>{
         ),
       ),
       floatingActionButton: SpeedDial(
-        // backgroundColor: Color(0xFF1F3379),
-        backgroundColor: Color(0xFF010F3F),
+        backgroundColor: Color(0xFF1F3379),
+        // backgroundColor: Color(0xFF010F3F),
         child: Icon(Icons.edit),
         closeManually: false,
         // animatedIcon: AnimatedIcons.menu_close,
