@@ -28,15 +28,15 @@ class _DashboardState extends State<Dashboard>{
       var response2 = await http.post("http://keuangan.berdagang.id/catatan.php",body:param);
       jsonData = json.decode(response2.body);
       if (this.mounted){
-        if (jsonData['status'] == '0') {
-          setState(() {
-            data = null;
-          });
-        } else {
+        // if (jsonData['status'] == '0') {
+          // setState(() {
+          //   data = null;
+          // });
+        // } else {
           setState(() {
             data = json.decode(response2.body);
           });
-        }
+        // }
       }
     // return 'success!';
   }
@@ -212,44 +212,47 @@ class _DashboardState extends State<Dashboard>{
                         transform: Matrix4.translationValues(0.0, -135.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min, children: <Widget>[
-                            ListTile(
-                              title: new Row(
-                                children: <Widget>[
-                                  data[index]['kategori'] == '1' ?
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom:10.0,top:15.0),
-                                    child: Text(rupiah(data[index]['jumlah']),style:TextStyle(color:Color(0xFF00c925),fontWeight: FontWeight.bold,fontSize: 20))
-                                  ):
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom:10.0,top:15.0),
-                                    child: Text(rupiah(data[index]['jumlah']),style:TextStyle(color:Color(0xFFc90000),fontWeight: FontWeight.bold,fontSize: 20))
-                                  )
-                                ],
+                            Padding(
+                              padding: const EdgeInsets.only(left:10.0,right: 10.0),
+                              child: ListTile(
+                                title: new Row(
+                                  children: <Widget>[
+                                    data[index]['kategori'] == '1' ?
+                                    Padding(
+                                      padding: const EdgeInsets.only(bottom:10.0,top:15.0),
+                                      child: Text(rupiah(data[index]['jumlah']),style:TextStyle(color:Color(0xFF00c925),fontWeight: FontWeight.bold,fontSize: 20))
+                                    ):
+                                    Padding(
+                                      padding: const EdgeInsets.only(bottom:10.0,top:15.0),
+                                      child: Text(rupiah(data[index]['jumlah']),style:TextStyle(color:Color(0xFFc90000),fontWeight: FontWeight.bold,fontSize: 20))
+                                    )
+                                  ],
+                                ),
+                                subtitle: new Row(
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.only(bottom:10.0,top:0.0),
+                                      child: Text(data[index]['catatan'] + " (" + data[index]['tanggal'] + ")" ,style:TextStyle(color:Colors.grey,fontSize: 14)),
+                                    )
+                                  ],
+                                ),
+                                leading: 
+                                data[index]['kategori'] == '1' ?
+                                IconButton(
+                                  icon: Icon(Icons.file_download,color:Color(0xFF00c925),size: 30),
+                                  onPressed: () {
+                                    
+                                  },
+                                ) :
+                                IconButton(
+                                  icon: Icon(Icons.file_upload,color:Color(0xFFc90000),size: 30),
+                                  onPressed: () {
+                                    
+                                  },
+                                ),
+                                // title: Text(data[index]['rekening'], style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),),
+                                // subtitle: Text('Arti : ', style: TextStyle(fontWeight: FontWeight.bold),), //MENGGUNAKAN COLUMN
                               ),
-                              subtitle: new Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom:10.0,top:0.0),
-                                    child: Text(data[index]['catatan'] + " (" + data[index]['tanggal'] + ")" ,style:TextStyle(color:Colors.grey,fontSize: 18)),
-                                  )
-                                ],
-                              ),
-                              leading: 
-                              data[index]['kategori'] == '1' ?
-                              IconButton(
-                                icon: Icon(Icons.file_download,color:Color(0xFF00c925),size: 30),
-                                onPressed: () {
-                                  
-                                },
-                              ) :
-                              IconButton(
-                                icon: Icon(Icons.file_upload,color:Color(0xFFc90000),size: 30),
-                                onPressed: () {
-                                  
-                                },
-                              ),
-                              // title: Text(data[index]['rekening'], style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),),
-                              // subtitle: Text('Arti : ', style: TextStyle(fontWeight: FontWeight.bold),), //MENGGUNAKAN COLUMN
                             ),
                             Divider()
                           ],),
